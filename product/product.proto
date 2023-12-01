@@ -1,0 +1,60 @@
+syntax = "proto3";
+option go_package = "github.com/Zohirjonn/online_shop_services_protos/product";
+
+package product;
+
+message Product {
+  string id = 1 [json_name = "id"];
+  string name = 2 [json_name = "name"];
+  string description = 3 [json_name = "description"];
+  string category_id = 4 [json_name = "category_id"];
+  string image_url = 5 [json_name = "image_url"];
+  string sale_type = 6 [json_name = "sale_type"];
+  int32 price = 7 [json_name = "price"];
+  int32 total_number_of_sales = 8 [json_name = "total_number_of_sales"];
+  string created_at = 9 [json_name = "created_at"];
+  string updated_at = 10 [json_name = "updated_at"];
+}
+
+message ProductResponse {
+  Product product = 1 [json_name = "product"];
+}
+
+message ProductsResponse {
+ repeated Product product = 1 [json_name = "product"];
+}
+
+message EmptyResponse {}
+
+message CreateProductRequest {
+  string name = 1 [json_name = "name"];
+  string description = 2 [json_name = "description"];
+  string category_id = 3 [json_name = "category_id"];
+  string image_url = 4 [json_name = "image_url"];
+  string sale_type = 5 [json_name = "sale_type"];
+  int32 price = 6 [json_name = "price"];
+}
+
+message UpdateProductRequest {
+  string id = 1 [json_name = "id"];
+  string name = 2 [json_name = "name"];
+  string description = 3 [json_name = "description"];
+  string category_id = 4 [json_name = "category_id"];
+  string image_url = 5 [json_name = "image_url"];
+  string sale_type = 6 [json_name = "sale_type"];
+  int32 price = 7 [json_name = "price"];
+}
+
+message GetProductByIDRequest {
+  string id = 1 [json_name = "id"];
+}
+
+message GetProductsByCategoryIDRequest {
+  string category_id = 1 [json_name = "category_id"];
+}
+
+message DeleteProductRequest {
+  string id = 1 [json_name = "id"];
+}
+
+

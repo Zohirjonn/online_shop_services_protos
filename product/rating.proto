@@ -1,0 +1,50 @@
+syntax = "proto3";
+option go_package = "github.com/Zohirjonn/online_shop_services_protos/product";
+
+package product;
+
+message Rating {
+  string id = 1 [json_name = "id"];
+  string product_id = 2 [json_name = "product_id"];
+  string user_id = 3 [json_name = "user_id"];
+  int32 rate = 4 [json_name = "rate"];
+  string description = 5 [json_name = "description"];
+  string created_at = 9 [json_name = "created_at"];
+  string updated_at = 10 [json_name = "updated_at"];
+}
+
+message RatingsResponse {
+  repeated Rating rating = 1 [json_name = "rating"];
+}
+
+message EmptyResponse {}
+
+message CreateRatingRequest {
+  string product_id = 1 [json_name = "product_id"];
+  string user_id = 2 [json_name = "user_id"];
+  int32 rate = 3 [json_name = "rate"];
+  string description = 4 [json_name = "description"];
+}
+
+message UpdateRatingRequest {
+  string id = 1 [json_name = "id"];
+  int32 rate = 2 [json_name = "rate"];
+  string description = 3 [json_name = "description"];
+}
+
+message GetRatingsByProductIDRequest {
+  string product_id = 1 [json_name = "product_id"];
+}
+
+message GetRatingsByUserIDRequest {
+  string user_id = 1 [json_name = "user_id"];
+}
+
+message GetRatingsByProductIDAndRatingRequest {
+  string product_id = 1 [json_name = "product_id"];
+  int32 rate = 2 [json_name = "rate"];
+}
+
+message DeleteRatingByIDRequest {
+  string id = 1 [json_name = "id"];
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+option go_package = "github.com/Zohirjonn/online_shop_services_protos/product";
+
+package product;
+import "product/product.proto";
+import "product/rating.proto";
+
+service ProductService {
+  rpc CreateRating (CreateRatingRequest) returns (EmptyResponse);
+  rpc UpdateRating (UpdateRatingRequest) returns (EmptyResponse);
+  rpc GetRatingsByProductID (GetRatingsByProductIDRequest) returns (RatingsResponse);
+  rpc GetRatingsByUserID (GetRatingsByUserIDRequest) returns (RatingsResponse);
+  rpc GetRatingsByProductIDAndRating (GetRatingsByProductIDAndRatingRequest) returns (RatingsResponse);
+  rpc DeleteRatingByID (DeleteRatingByIDRequest) returns (EmptyResponse);
+  rpc CreateProduct (CreateProductRequest) returns (EmptyResponse);
+  rpc UpdateProduct (UpdateProductRequest) returns (EmptyResponse);
+  rpc GetProductByID (GetProductByIDRequest) returns (ProductResponse);
+  rpc GetProductsByCategoryID (GetProductsByCategoryIDRequest) returns (ProductsResponse);
+  rpc DeleteProduct (DeleteProductRequest) returns (EmptyResponse);
+}
