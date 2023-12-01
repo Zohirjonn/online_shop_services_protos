@@ -1,7 +1,7 @@
 syntax = "proto3";
-option go_package = "github.com/Zohirjonn/online_shop_services_protos/rating";
+option go_package = "github.com/Zohirjonn/online_shop_services_protos/product";
 
-package rating;
+package product;
 
 message Rating {
   string id = 1 [json_name = "id"];
@@ -16,8 +16,6 @@ message Rating {
 message RatingsResponse {
   repeated Rating rating = 1 [json_name = "rating"];
 }
-
-message EmptyResponse {}
 
 message CreateRatingRequest {
   string product_id = 1 [json_name = "product_id"];
