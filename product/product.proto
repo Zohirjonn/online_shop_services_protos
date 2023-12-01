@@ -47,12 +47,12 @@ message UpdateProductRequest {
 
 message GetProductByIDRequest {
   string id = 1 [json_name = "id"];
-  int32 page = 2 [json_name = "page"];
-  int32 page_size = 3 [json_name = "page_size"];
 }
 
 message GetProductsByCategoryIDRequest {
   string category_id = 1 [json_name = "category_id"];
+  int32 page = 2 [json_name = "page"];
+  int32 page_size = 3 [json_name = "page_size"];
 }
 
 message DeleteProductRequest {
