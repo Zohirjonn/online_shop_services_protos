@@ -1,0 +1,76 @@
+syntax = "proto3";
+option go_package = "github.com/Zohirjonn/online_shop_services_protos/user";
+
+package user;
+
+message User {
+    string id = 1 [json_name = "id"];
+    string phone_number = 2 [json_name = "phone_number"];
+    string password_hash = 3 [json_name = "password_hash"];
+    string password_salt = 4 [json_name = "password_salt"];
+    string created_at = 5 [json_name = "created_at"];
+    string updated_at = 6 [json_name = "updated_at"];
+}
+
+message UserProfile {
+	string id = 1 [json_name = "id"];
+    string user_id = 2 [json_name = "user_id"];
+    string name = 3 [json_name = "name"];
+	string last_name = 4 [json_name = "last_name"];
+	string phone_number = 5 [json_name = "phone_number"];
+	bool verified = 6 [json_name = "verified"];
+	string image_url = 7 [json_name = "image_url"];
+	string created_at = 8 [json_name = "created_at"];
+	string updated_at = 9 [json_name = "updated_at"];
+}
+
+
+message SignUpUserRequest {
+	string phone_number = 1 [json_name = "phone_number"];
+    string name = 2 [json_name = "name"];
+    string last_name = 3 [json_name = "last_name"];
+}
+
+message SingUpAndSignInUserResponse {
+	string user_id = 1 [json_name = "user_id"];
+}
+
+message SingInUserRequest {
+	string phone_number = 1 [json_name = "phone_number"];
+}
+message IsRegisteredUserRequest {
+	string phone_number = 1 [json_name = "phone_number"];
+}
+
+message IsRegisteredUserResponse {
+	bool is_user_registered = 1 [json_name = "is_user_registered"];
+}
+
+message ConfirmSMSCodeRequest {
+	string user_id = 1 [json_name = "user_id"];
+    string sms_code = 2 [json_name = "sms_code"];
+}
+
+message ConfirmSMSCodeResponse {
+	UserProfile profile = 1 [json_name = "profile"];
+}
+
+message GetUserProfileRequest {
+	string user_id = 1 [json_name = "user_id"];
+}
+
+message GetUserProfileResponse {
+	UserProfile profile = 1 [json_name = "profile"];
+}
+
+message UpdateUserProfileRequest {
+	string user_id = 1 [json_name = "user_id"];
+    string name = 2 [json_name = "name"];
+    string last_name = 3 [json_name = "last_name"];
+	string image_url = 4 [json_name = "image_url"];
+	string phone_number = 5 [json_name = "phone_number"];
+}
+
+message UpdateUserProfileResponse {
+	UserProfile profile = 1 [json_name = "profile"];
+}
